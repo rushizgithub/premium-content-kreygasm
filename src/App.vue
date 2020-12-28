@@ -44,15 +44,21 @@ export default {
       if (inputModelKebab === "") {
         inputModelKebab = "videos";
       }
-      window.open("https://www.vixen.com/" + inputModelKebab, "_blank");
-      window.open("https://www.tushy.com/" + inputModelKebab, "_blank");
-      window.open("https://www.blacked.com/" + inputModelKebab, "_blank");
-      window.open("https://www.tushyraw.com/" + inputModelKebab, "_blank");
-      window.open("https://www.blackedraw.com/" + inputModelKebab, "_blank");
-      window.open("https://www.deeper.com/" + inputModelKebab, "_blank");
+      window.open("https://www.vixen.com/" + inputModelKebab, "vixen");
+      window.open("https://www.tushy.com/" + inputModelKebab, "tushy");
+      window.open("https://www.tushyraw.com/" + inputModelKebab, "tushyraw");
+      window.open("https://www.blacked.com/" + inputModelKebab, "blacked");
+      window.open(
+        "https://www.blackedraw.com/" + inputModelKebab,
+        "blackedraw"
+      );
+      window.open("https://www.deeper.com/" + inputModelKebab, "deeper");
     },
     openKreygasmBank() {
-      window.open("https://www.daftsex.com/video/" + this.inputModel, "_blank");
+      window.open(
+        "https://www.daftsex.com/video/" + this.inputModel,
+        "daftsex"
+      );
       this.inputModel = "";
     },
   },
