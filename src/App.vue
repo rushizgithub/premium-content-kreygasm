@@ -108,7 +108,6 @@ export default {
       var dfMin = this.dfModel.val;
       var dfMax = this.postIdMax();
 
-      var x = [];
       for (let postId = dfMin; postId <= dfMax; postId++) {
         window.open("https://fan-topia.com/post/" + postId, postId);
       }
