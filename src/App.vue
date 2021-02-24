@@ -1,30 +1,72 @@
 <template>
-  <div id="app" class="d-flex min-vh-100">
-    <div class="mx-auto mt-5">
+  <div id="app" class="d-flex flex-column min-vh-100">
+    <div class="row mx-auto py-3">
       <b-card
-        class="p-5"
+        class="m-3 p-5"
         title="Premium Content"
         sub-title="Search for premium content Kreygasm"
       >
-        <b-form class="mt-5" @submit="openKreygasmPortals">
-          <b-form-input v-model="inputModel" type="search"></b-form-input>
-          <b-button
-            class="mt-3 font-weight-bold"
-            block
-            variant="danger"
-            type="submit"
-          >
-            DAVAI
-          </b-button>
-        </b-form>
+        <b-form-input
+          class="mt-5"
+          v-model="pcModel"
+          type="search"
+        ></b-form-input>
+        <b-button
+          class="mt-3 font-weight-bold"
+          block
+          variant="danger"
+          type="submit"
+          @click="openPremiumContentPortals"
+        >
+          DAVAI
+        </b-button>
         <b-button
           class="mt-3 font-weight-bold"
           block
           variant="outline-danger"
-          @click="openKreygasmBank"
+          @click="openPremiumContentBank"
         >
           Kreygasm Bank (DS)
         </b-button>
+      </b-card>
+      <b-card
+        class="m-3 p-5"
+        title="Deepfakes Yoinker"
+        sub-title="TriHard Yoink the Deepfakes "
+      >
+        <b-form @submit.prevent="openDeepfakesBank">
+          <b-input-group prepend="Start at:" class="mt-5">
+            <b-form-input
+              v-model="dfModel.val"
+              type="number"
+              min="0"
+              required
+            />
+          </b-input-group>
+          <b-input-group prepend="Max Link:" class="mt-3">
+            <b-form-input
+              v-model="dfModel.maxLink"
+              type="number"
+              min="0"
+              max="20"
+              required
+            />
+          </b-input-group>
+          <b-alert class="mt-3" :show="dfModel.val > 0" variant="info">
+            From
+            <b>{{ dfModel.val }}</b>
+            To
+            <b>{{ postIdMax() }}</b>
+          </b-alert>
+          <b-button
+            class="mt-3 font-weight-bold"
+            block
+            variant="success"
+            type="submit"
+          >
+            YOINK EM ALL
+          </b-button>
+        </b-form>
       </b-card>
     </div>
   </div>
@@ -35,31 +77,41 @@ export default {
   name: "App",
   data() {
     return {
-      inputModel: "",
+      pcModel: "",
+      dfModel: { val: "", maxLink: 0 },
     };
   },
   methods: {
-    openKreygasmPortals() {
-      var inputModelKebab = this.inputModel.replace(" ", "-");
-      if (inputModelKebab === "") {
-        inputModelKebab = "videos";
+    openPremiumContentPortals() {
+      var pcModelKebab = this.pcModel.replace(" ", "-");
+      if (pcModelKebab === "") {
+        pcModelKebab = "videos";
       }
-      window.open("https://www.vixen.com/" + inputModelKebab, Math.random());
-      window.open("https://www.tushy.com/" + inputModelKebab, Math.random());
-      window.open("https://www.blacked.com/" + inputModelKebab, Math.random());
-      window.open("https://www.tushyraw.com/" + inputModelKebab, Math.random());
-      window.open(
-        "https://www.blackedraw.com/" + inputModelKebab,
-        Math.random()
-      );
-      window.open("https://www.deeper.com/" + inputModelKebab, Math.random());
+      window.open("https://www.vixen.com/" + pcModelKebab, Math.random());
+      window.open("https://www.tushy.com/" + pcModelKebab, Math.random());
+      window.open("https://www.blacked.com/" + pcModelKebab, Math.random());
+      window.open("https://www.tushyraw.com/" + pcModelKebab, Math.random());
+      window.open("https://www.blackedraw.com/" + pcModelKebab, Math.random());
+      window.open("https://www.deeper.com/" + pcModelKebab, Math.random());
     },
-    openKreygasmBank() {
+    openPremiumContentBank() {
       window.open(
-        "https://www.daftsex.com/video/" + this.inputModel,
+        "https://www.daftsex.com/video/" + this.pcModel,
         Math.random()
       );
-      this.inputModel = "";
+      this.pcModel = "";
+    },
+    postIdMax() {
+      return parseInt(this.dfModel.val) + parseInt(this.dfModel.maxLink);
+    },
+    openDeepfakesBank() {
+      var dfMin = this.dfModel.val;
+      var dfMax = this.postIdMax();
+
+      var x = [];
+      for (let postId = dfMin; postId <= dfMax; postId++) {
+        window.open("https://fan-topia.com/post/" + postId, postId);
+      }
     },
   },
 };
