@@ -7,7 +7,7 @@
         title="Authentication Password"
         sub-title="Password WifeCheck"
       >
-        <b-form ref="authForm">
+        <b-form ref="authForm" @submit.prevent="logIn()">
           <b-input-group class="mt-5">
             <template #prepend>
               <b-input-group-text
@@ -20,7 +20,7 @@
             class="mt-3 font-weight-bold"
             block
             variant="success"
-            @click="logIn()"
+            type="submit"
           >
             Log In
           </b-button>
