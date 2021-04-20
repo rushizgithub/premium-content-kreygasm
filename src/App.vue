@@ -109,7 +109,7 @@ export default {
       var dfMax = this.postIdMax();
 
       for (let postId = dfMin; postId <= dfMax; postId++) {
-        window.open("https://fan-topia.com/post/" + postId, postId);
+        window.open("http://fan-topia.com/post/" + postId, postId);
       }
     },
   },
