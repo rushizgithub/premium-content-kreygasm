@@ -2,6 +2,32 @@
   <div id="app" class="d-flex flex-column min-vh-100">
     <div class="row mx-auto py-3">
       <b-card
+        v-if="!loggedInModel"
+        class="m-3 p-5"
+        title="Authentication Password"
+        sub-title="Password WifeCheck"
+      >
+        <b-form ref="authForm">
+          <b-input-group class="mt-5">
+            <template #prepend>
+              <b-input-group-text
+                ><b-icon icon="key"></b-icon
+              ></b-input-group-text>
+            </template>
+            <b-form-input v-model="pwModel" type="password" required />
+          </b-input-group>
+          <b-button
+            class="mt-3 font-weight-bold"
+            block
+            variant="success"
+            @click="logIn()"
+          >
+            Log In
+          </b-button>
+        </b-form>
+      </b-card>
+      <b-card
+        v-if="loggedInModel"
         class="m-3 p-5"
         title="Premium Content"
         sub-title="Search for premium content Kreygasm"
@@ -30,6 +56,7 @@
         </b-button>
       </b-card>
       <b-card
+        v-if="loggedInModel"
         class="m-3 p-5"
         title="Deepfakes Yoinker"
         sub-title="TriHard Yoink the Deepfakes "
@@ -77,11 +104,23 @@ export default {
   name: "App",
   data() {
     return {
+      loggedInModel: localStorage.pw === "elegiggle" ? true : false,
+      pwModel: "",
       pcModel: "",
       dfModel: { val: "", maxLink: 0 },
     };
   },
+  mounted() {},
   methods: {
+    logIn() {
+      if (this.pwModel === "elegiggle") {
+        localStorage.pw = this.pwModel;
+        alert("Velkommen!");
+        this.$refs.authForm.submit();
+      } else {
+        alert("Wrong!");
+      }
+    },
     openPremiumContentPortals() {
       var pcModelKebab = this.pcModel.replace(" ", "-");
       if (pcModelKebab === "") {
