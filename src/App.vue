@@ -148,7 +148,7 @@ export default {
       var dfMax = this.postIdMax();
 
       for (let postId = dfMin; postId <= dfMax; postId++) {
-        window.open("http://fan-topia.com/edit/" + postId, postId);
+        window.open("http://fan-topia.com/post/" + postId, postId);
       }
     },
   },
