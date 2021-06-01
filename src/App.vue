@@ -125,13 +125,15 @@ export default {
       var pcModelKebab = this.pcModel.replace(" ", "-");
       if (pcModelKebab === "") {
         pcModelKebab = "videos";
+      }else{
+        pcModelKebab = "models/"+pcModelKebab
       }
-      window.open("https://www.vixen.com/models/" + pcModelKebab, Math.random());
-      window.open("https://www.tushy.com/models/" + pcModelKebab, Math.random());
-      window.open("https://www.blacked.com/models/" + pcModelKebab, Math.random());
-      window.open("https://www.tushyraw.com/models/" + pcModelKebab, Math.random());
-      window.open("https://www.blackedraw.com/models/" + pcModelKebab, Math.random());
-      window.open("https://www.deeper.com/models/" + pcModelKebab, Math.random());
+      window.open("https://www.vixen.com/" + pcModelKebab, Math.random());
+      window.open("https://www.tushy.com/" + pcModelKebab, Math.random());
+      window.open("https://www.blacked.com/" + pcModelKebab, Math.random());
+      window.open("https://www.tushyraw.com/" + pcModelKebab, Math.random());
+      window.open("https://www.blackedraw.com/" + pcModelKebab, Math.random());
+      window.open("https://www.deeper.com/" + pcModelKebab, Math.random());
     },
     openPremiumContentBank() {
       window.open(
