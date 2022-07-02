@@ -107,7 +107,7 @@ export default {
       loggedInModel: localStorage.pw === "elegiggle" ? true : false,
       pwModel: "",
       pcModel: "",
-      dfModel: { val: "", maxLink: 0 },
+      dfModel: { val: localStorage.lastPostBatch || "", maxLink: 0 },
     };
   },
   mounted() {},
@@ -125,8 +125,8 @@ export default {
       var pcModelKebab = this.pcModel.replace(" ", "-");
       if (pcModelKebab === "") {
         pcModelKebab = "videos";
-      }else{
-        pcModelKebab = "models/"+pcModelKebab
+      } else {
+        pcModelKebab = "models/" + pcModelKebab;
       }
       window.open("https://www.vixen.com/" + pcModelKebab, Math.random());
       window.open("https://www.tushy.com/" + pcModelKebab, Math.random());
@@ -149,6 +149,7 @@ export default {
       var dfMin = this.dfModel.val;
       var dfMax = this.postIdMax();
 
+      localStorage.lastPostBatch = dfMin;
       for (let postId = dfMin; postId <= dfMax; postId++) {
         window.open("http://fan-topia.com/post/" + postId, postId);
       }
