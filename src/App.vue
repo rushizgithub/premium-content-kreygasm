@@ -4,8 +4,8 @@
       <b-card
         v-if="!loggedInModel"
         class="m-3 p-5"
-        title="Authentication Password"
-        sub-title="Password WifeCheck"
+        title="Login"
+        sub-title="password"
       >
         <b-form ref="authForm" @submit.prevent="logIn()">
           <b-input-group class="mt-5">
@@ -29,8 +29,8 @@
       <b-card
         v-if="loggedInModel"
         class="m-3 p-5"
-        title="Premium Content"
-        sub-title="Search for premium content Kreygasm"
+        title="Vixen Media"
+        sub-title="Search"
       >
         <b-form-input
           class="mt-5"
@@ -44,7 +44,7 @@
           type="submit"
           @click="openPremiumContentPortals"
         >
-          DAVAI
+          Open
         </b-button>
         <b-button
           class="mt-3 font-weight-bold"
@@ -52,48 +52,8 @@
           variant="outline-danger"
           @click="openPremiumContentBank"
         >
-          Kreygasm Bank (DS)
+          Other Sites
         </b-button>
-      </b-card>
-      <b-card
-        v-if="loggedInModel"
-        class="m-3 p-5"
-        title="Deepfakes Yoinker"
-        sub-title="TriHard Yoink the Deepfakes "
-      >
-        <b-form @submit.prevent="openDeepfakesBank">
-          <b-input-group prepend="Start at:" class="mt-5">
-            <b-form-input
-              v-model="dfModel.val"
-              type="number"
-              min="0"
-              required
-            />
-          </b-input-group>
-          <b-input-group prepend="Max Link:" class="mt-3">
-            <b-form-input
-              v-model="dfModel.maxLink"
-              type="number"
-              min="0"
-              max="20"
-              required
-            />
-          </b-input-group>
-          <b-alert class="mt-3" :show="dfModel.val > 0" variant="info">
-            From
-            <b>{{ dfModel.val }}</b>
-            To
-            <b>{{ postIdMax() }}</b>
-          </b-alert>
-          <b-button
-            class="mt-3 font-weight-bold"
-            block
-            variant="success"
-            type="submit"
-          >
-            YOINK EM ALL
-          </b-button>
-        </b-form>
       </b-card>
     </div>
   </div>
@@ -104,7 +64,7 @@ export default {
   name: "App",
   data() {
     return {
-      loggedInModel: localStorage.pw === "elegiggle" ? true : false,
+      loggedInModel: localStorage.pw === "password" ? true : false,
       pwModel: "",
       pcModel: "",
       dfModel: { val: localStorage.lastPostBatch || "", maxLink: 0 },
@@ -113,9 +73,9 @@ export default {
   mounted() {},
   methods: {
     logIn() {
-      if (this.pwModel === "elegiggle") {
+      if (this.pwModel === "password") {
         localStorage.pw = this.pwModel;
-        alert("Velkommen!");
+        alert("Welcome!");
         this.$refs.authForm.submit();
       } else {
         alert("Wrong!");
@@ -138,22 +98,20 @@ export default {
       window.open("https://www.slayed.com/" + pcModelKebab, Math.random());
     },
     openPremiumContentBank() {
-      window.open("https://tube.perverzija.com/stars/" + pcModelKebab, Math.random());
+      var pcModelKebab = this.pcModel.replace(" ", "-");
+      window.open(
+        "https://tube.perverzija.com/stars/" + pcModelKebab,
+        Math.random()
+      );
       window.open("https://porndish.com/tag/" + pcModelKebab, Math.random());
-      window.open("https://sxyprn.com/" + pcModelKebab, Math.random());
+      window.open(
+        "https://sxyprn.com/" + pcModelKebab + ".html",
+        Math.random()
+      );
       this.pcModel = "";
     },
     postIdMax() {
       return parseInt(this.dfModel.val) + parseInt(this.dfModel.maxLink);
-    },
-    openDeepfakesBank() {
-      var dfMin = this.dfModel.val;
-      var dfMax = this.postIdMax();
-
-      localStorage.lastPostBatch = dfMin;
-      for (let postId = dfMin; postId <= dfMax; postId++) {
-        window.open("http://fan-topia.com/post/" + postId, postId);
-      }
     },
   },
 };
