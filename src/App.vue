@@ -30,7 +30,7 @@
         v-if="loggedInModel"
         class="m-3 p-5"
         title="Vixen Media"
-        sub-title="Search"
+        sub-title="Model Search"
       >
         <b-form-input
           class="mt-5"
