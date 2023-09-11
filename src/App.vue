@@ -130,16 +130,17 @@ export default {
       }
       window.open("https://www.vixen.com/" + pcModelKebab, Math.random());
       window.open("https://www.tushy.com/" + pcModelKebab, Math.random());
-      window.open("https://www.blacked.com/" + pcModelKebab, Math.random());
       window.open("https://www.tushyraw.com/" + pcModelKebab, Math.random());
+      window.open("https://www.blacked.com/" + pcModelKebab, Math.random());
       window.open("https://www.blackedraw.com/" + pcModelKebab, Math.random());
       window.open("https://www.deeper.com/" + pcModelKebab, Math.random());
+      window.open("https://www.milfy.com/" + pcModelKebab, Math.random());
+      window.open("https://www.slayed.com/" + pcModelKebab, Math.random());
     },
     openPremiumContentBank() {
-      window.open(
-        "https://www.daftsex.com/video/" + this.pcModel,
-        Math.random()
-      );
+      window.open("https://tube.perverzija.com/stars/" + pcModelKebab, Math.random());
+      window.open("https://porndish.com/tag/" + pcModelKebab, Math.random());
+      window.open("https://sxyprn.com/" + pcModelKebab, Math.random());
       this.pcModel = "";
     },
     postIdMax() {
