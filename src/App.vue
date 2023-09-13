@@ -4,7 +4,7 @@
       <b-card class="m-3 p-5" title="Vixen Media" sub-title="Model Search">
         <b-form-input v-model="pcModel" class="mt-5" type="search"></b-form-input>
         <b-button @click="openPremiumContentPortals" class="mt-3 font-weight-bold" block variant="danger" type="submit">Open</b-button>
-        <b-button @click="openPremiumContentBank" class="mt-3 font-weight-bold" block variant="outline-danger">Other Sites</b-button>
+        <b-button @click="openOtherSites" class="mt-3 font-weight-bold" block variant="outline-danger">Other Sites</b-button>
       </b-card>
     </div>
   </div>
@@ -38,17 +38,29 @@ export default {
       portals.forEach((portal) => {
         this.openUrl(`https://www.${portal}/${pcModelKebab}`);
       });
+
+      this.pcModel = "";
     },
-    openPremiumContentBank() {
+    openOtherSites() {
       const pcModelKebab = this.pcModel.trim().replace(/\s+/g, "-") || "";
-      const banks = [
-        "tube.perverzija.com",
-        "porndish.com",
-        "sxyprn.com",
+      const sites = [
+        {
+          url: "https://tube.perverzija.com/",
+          path: "stars",
+        },
+        {
+          url: "https://porndish.com/",
+          path: "tag",
+        },
+        {
+          url: "https://sxyprn.com/",
+          path: "tag",
+        },
       ];
 
-      banks.forEach((bank) => {
-        this.openUrl(`https://${bank}/${pcModelKebab}`);
+      sites.forEach((site) => {
+        const path = pcModelKebab ? `${site.path}/${pcModelKebab}` : "";
+        this.openUrl(`${site.url}${path}`);
       });
 
       this.pcModel = "";
