@@ -11,26 +11,14 @@
 </template>
 
 <script>
-const PASSWORD = "password";
-
 export default {
   name: "App",
   data() {
     return {
-      pwModel: "",
       pcModel: "",
     };
   },
   methods: {
-    logIn() {
-      if (this.pwModel === PASSWORD) {
-        localStorage.pw = this.pwModel;
-        alert("Welcome!");
-        this.$refs.authForm.submit();
-      } else {
-        alert("Wrong!");
-      }
-    },
     openUrl(url) {
       window.open(url, Math.random());
     },
