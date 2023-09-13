@@ -71,12 +71,17 @@ export default {
         },
         {
           url: "https://sxyprn.com/",
-          path: "tag",
+          path: "", // Remove "tag" and add ".html" at the end
         },
       ];
 
       sites.forEach((site) => {
-        const path = pcModelKebab ? `${site.path}/${pcModelKebab}` : "";
+        let path = site.path;
+        if (site.url === "https://sxyprn.com/") {
+          path = pcModelKebab ? `${pcModelKebab}.html` : "";
+        } else {
+          path = pcModelKebab ? `${site.path}/${pcModelKebab}` : "";
+        }
         this.openUrl(`${site.url}${path}`);
       });
 
