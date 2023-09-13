@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="d-flex flex-column min-vh-100">
     <div class="row mx-auto py-3">
-      <b-card
+      <!-- <b-card
         v-if="!loggedInModel"
         class="m-3 p-5"
         title="Login"
@@ -25,13 +25,8 @@
             Log In
           </b-button>
         </b-form>
-      </b-card>
-      <b-card
-        v-if="loggedInModel"
-        class="m-3 p-5"
-        title="Vixen Media"
-        sub-title="Model Search"
-      >
+      </b-card> -->
+      <b-card class="m-3 p-5" title="Vixen Media" sub-title="Model Search">
         <b-form-input
           class="mt-5"
           v-model="pcModel"
@@ -98,16 +93,30 @@ export default {
       window.open("https://www.slayed.com/" + pcModelKebab, Math.random());
     },
     openPremiumContentBank() {
-      var pcModelKebab = this.pcModel.replace(" ", "-");
+      var pcModelKebab1 = this.pcModel.replace(" ", "-");
+      if (pcModelKebab1 === "") {
+        pcModelKebab1 = "";
+      } else {
+        pcModelKebab1 = "stars/" + pcModelKebab1;
+      }
       window.open(
-        "https://tube.perverzija.com/stars/" + pcModelKebab,
+        "https://tube.perverzija.com/" + pcModelKebab1,
         Math.random()
       );
-      window.open("https://porndish.com/tag/" + pcModelKebab, Math.random());
-      window.open(
-        "https://sxyprn.com/" + pcModelKebab + ".html",
-        Math.random()
-      );
+      var pcModelKebab2 = this.pcModel.replace(" ", "-");
+      if (pcModelKebab2 === "") {
+        pcModelKebab2 = "";
+      } else {
+        pcModelKebab2 = "tag/" + pcModelKebab1;
+      }
+      window.open("https://porndish.com/" + pcModelKebab2, Math.random());
+      var pcModelKebab3 = this.pcModel.replace(" ", "-");
+      if (pcModelKebab3 === "") {
+        pcModelKebab3 = "";
+      } else {
+        pcModelKebab3 = "tag/" + pcModelKebab3 + ".html";
+      }
+      window.open("https://sxyprn.com/" + pcModelKebab3, Math.random());
       this.pcModel = "";
     },
     postIdMax() {
