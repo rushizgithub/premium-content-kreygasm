@@ -40,7 +40,9 @@ export default {
       window.open(url, Math.random());
     },
     openPremiumContentPortals() {
-      const pcModelKebab = this.pcModel.trim().replace(/\s+/g, "-") || "videos";
+      const pcModelKebab = this.pcModel.trim().replace(/\s+/g, "-");
+      const modelSegment = pcModelKebab ? "models/" : "videos";
+
       const portals = [
         "vixen.com",
         "tushy.com",
@@ -53,11 +55,13 @@ export default {
       ];
 
       portals.forEach((portal) => {
-        this.openUrl(`https://www.${portal}/${pcModelKebab}`);
+        const url = `https://www.${portal}/${modelSegment}${pcModelKebab}`;
+        this.openUrl(url);
       });
 
       this.pcModel = "";
     },
+
     openOtherSites() {
       const pcModelKebab = this.pcModel.trim().replace(/\s+/g, "-") || "";
       const sites = [
